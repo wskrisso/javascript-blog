@@ -7,7 +7,7 @@ function titleClickHandler(event){
   const activeLinks = document.querySelectorAll('.titles a.active');
 
   for(let activeLink of activeLinks){
-      activeLink.classList.remove('active');
+    activeLink.classList.remove('active');
   }
 
   /* add class 'active' to the clicked link */
@@ -57,8 +57,7 @@ function generateTitleLinks(){
     html = html + linkHTML;
   }
   
-titleList.innerHTML = html;
-
+  titleList.innerHTML = html;
 }
 
 generateTitleLinks();
@@ -66,5 +65,5 @@ generateTitleLinks();
 const links = document.querySelectorAll('.titles a');
   
 for(let link of links){
-    link.addEventListener('click', titleClickHandler);
+  link.addEventListener('click', titleClickHandler);
 }
