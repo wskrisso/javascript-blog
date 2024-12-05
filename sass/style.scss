@@ -82,12 +82,14 @@ body {
   padding: 0;
   .active {
     font-weight: bold;
+    color: red;
   }
 }
 
 .list-horizontal {
   li {
     display: inline-block;
+    margin-left: 5px;
   }
 }
 
