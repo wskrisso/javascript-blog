@@ -12,8 +12,6 @@ function titleClickHandler(event){
   }
 
   /* add class 'active' to the clicked link */
-
-
   console.log('clickedElement:', clickedElement);
   clickedElement.classList.add('active');
 
@@ -41,7 +39,8 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleAuthorSelector = '.post-author',
-  optArticleTagsSelector = '.post-tags .list';
+  optArticleTagsSelector = '.post-tags .list',
+  optTagsListSelector = '.tags.list';
 
 function generateTitleLinks(customSelector = ''){
 
@@ -72,14 +71,14 @@ generateTitleLinks();
 ///////////////////////// TAGI
 
 function generateTags(){
+  /* [NEW] create a new variable allTags with an empty array */
+  let allTags = [];
+
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
 
   /* START LOOP: for every article: */
   for(let article of articles){
-    
-
-  
     /* find tags wrapper */
     const tagTitle = article.querySelector(optArticleTagsSelector);
     /* make html variable with empty string */
@@ -95,6 +94,11 @@ function generateTags(){
       const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
       /* add generated code to html variable */
       html = html + linkHTML;
+      /* [NEW] check if this link is NOT already in allTags */
+      if(allTags.indexOf(linkHTML) == -1){
+        /* [NEW] add generated code to allTags array */
+        allTags.push(linkHTML);
+      }
     /* END LOOP: for each tag */
     }
     /* insert HTML of all the links into the tags wrapper */
@@ -102,6 +106,11 @@ function generateTags(){
 
   /* END LOOP: for every article: */
   }
+  /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector(optTagsListSelector);
+
+  /* [NEW] add html from allTags to tagList */
+  tagList.innerHTML = allTags.join(' ');
 }
 
 generateTags();
@@ -140,6 +149,7 @@ function tagClickHandler(event){
 function addClickListenersToTags(){
   /* find all links to tags */
   const links = document.querySelectorAll('.post-tags a');
+
   /* START LOOP: for each link */
   for(let link of links){
     /* add tagClickHandler as event listener for that link */
