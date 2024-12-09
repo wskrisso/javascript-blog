@@ -20,7 +20,7 @@ function titleClickHandler(event){
   }
 
   /* add class 'active' to the clicked link */
-  console.log('clickedElement:', clickedElement);
+  //console.log('clickedElement:', clickedElement);
   clickedElement.classList.add('active');
 
   /* remove class 'active' from all articles */
@@ -31,11 +31,11 @@ function titleClickHandler(event){
   }
   /* get 'href' attribute from the clicked link */
   const articleSelector = clickedElement.getAttribute('href');
-  console.log (articleSelector);
+  //console.log (articleSelector);
 
   /* find the correct article using the selector (value of 'href' attribute) */
   const targetArticle = document.querySelector(articleSelector);
-  console.log (targetArticle);
+  //console.log (targetArticle);
   /* add class 'active' to the correct article */
   targetArticle.classList.add('active');
 }
@@ -163,7 +163,7 @@ function generateTags(){
       className: calculateTagClass(allTags[tag], tagsParams)
     });
   }
-  console.log(allTagsData)
+  //console.log(allTagsData)
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
 
   
@@ -177,7 +177,7 @@ function tagClickHandler(event){
   
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
-  console.log('clickedElement:', clickedElement);
+  //console.log('clickedElement:', clickedElement);
   
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
@@ -288,10 +288,10 @@ function generateAuthors(){
       className: calculateAuthorClass(allAuthors[author], authorsParams)
     });
   }
-  console.log(allAuthorsData);
+  //console.log(allAuthorsData);
 
   authorList.innerHTML = templates.authorsCloudLink(allAuthorsData);
-  console.log(authorList);
+  //console.log(authorList);
 
 }
 
@@ -303,7 +303,7 @@ function authorClickHandler(event){
   
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
-  console.log('clickedElement:', clickedElement);
+  //console.log('clickedElement:', clickedElement);
   
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
